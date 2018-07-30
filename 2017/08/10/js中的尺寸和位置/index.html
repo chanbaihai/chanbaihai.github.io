@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 产百海的博客</title>
+  <title>js中的尺寸和位置 | 产百海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="产百海的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js中的尺寸和位置">
+<meta property="og:url" content="http://yoursite.com/2017/08/10/js中的尺寸和位置/index.html">
 <meta property="og:site_name" content="产百海的博客">
+<meta property="og:description" content="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释">
 <meta property="og:locale" content="CN">
+<meta property="og:updated_time" content="2018-07-30T01:40:02.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="产百海的博客">
+<meta name="twitter:title" content="js中的尺寸和位置">
+<meta name="twitter:description" content="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释">
   
     <link rel="alternative" href="/atom.xml" title="产百海的博客" type="application/atom+xml">
   
@@ -146,87 +151,190 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js中的尺寸和位置" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/my-blog/" class="archive-article-date">
-  	<time datetime="2018-07-29T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/my-blog/">my-blog</a>
+    <h1 class="article-title" itemprop="name">
+      js中的尺寸和位置
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/08/10/js中的尺寸和位置/" class="archive-article-date">
+  	<time datetime="2017-08-10T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"><a href="#js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用" class="headerlink" title="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"></a>js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释是怎么介绍clientWidth的：<br>The Element.clientWidth property is zero for elements with no CSS or inline layout boxes, otherwise it’s the inner width of an element in pixels. It includes padding but not the vertical scrollbar (if present, if rendered), border or margin.<br>如果元素没有css或者是行内元素那么cientwidth就是0，包含边框but not the vertical scrollbar，不包含竖直的滚动条和margin，这样专业装逼的解释还没明白？<br><a id="more"></a><br>还有offsetLeft和clientLeft;<br>The HTMLElement.offsetLeft read-only property returns the number of pixels that the upper left corner of the current element is offset to the left within the HTMLElement.offsetParent node.<br>offsetLeft返回一个只读的像素值，从它的左上角到它offsetParent左边的距离。<br>clientLeft描述如下：<br>The width of the left border of an element in pixels. It includes the width of the vertical scrollbar if the text direction of the element is right–to–left and if there is an overflow causing a left vertical scrollbar to be rendered. clientLeft does not include the left margin or the left padding. clientLeft is read-only.<br>clientLeft是个只读的左边框的宽度值，如果文字方向是从右到左显示的并且overflow导致出现了竖直滚动条那么clientLeft包含滚动条的宽度。但不包含margin和padding。<br>那接下来看下scrollTop，专业的描述如下：<br>The Element.scrollTop property gets or sets the number of pixels that an element’s content is scrolled vertically.</p>
+<p>An element’s scrollTop value is a measurement of the distance from the element’s top to its topmost visible content. When an element’s content does not generate a vertical scrollbar, then its scrollTop value is 0.</p>
+<p>我的理解如下：</p>
+<p>scrollTop属性可以获取或设置一个像素值，如果这个元素有垂直滚动条，传入数值也就是把他的内容定位到指定要开始显示的地方，比如一个div高100px，内容有1000px，并且overflow：hidden，那么我设置scrollTop(500px)就是顶部从500px处开始显示，不传入数值就是获取滚动高度。</p>
+<p>scrollTop是从元素的顶部开始到它最上面可见内容的计算值，当元素没有形成竖直滚动条时，scrollTop就是0。</p>
+<p>接下来看看鼠标事件中的位置坐标信息：</p>
+<p>offsetX和clientX和screeX以及pageX真他妈的多！</p>
+<p>offsetX值相对于事件发生的元素本身的位置(IE私有属性，不过jq封装了，可以直接用），clientX为相对浏览器视窗的位置，pageX相对文档的位置，如果文档发生水平滚动了，pagex和clientx是不一样的，没有滚动就返回相同值。看下pagex的标准介绍吧，区别下clientX：</p>
+<p>The pageY read-only property of the MouseEvent interface returns the Y (vertical) coordinate in pixels of the event relative to the whole document. This property takes into account any vertical scrolling of the page. </p>
+<p>pageY为只读属性，返回相对于整个文档和Y（e.Y ）相同的像素值，并且pageY要考虑文档竖直方向的滚动距离，clientY就不用，因为它是相对浏览器窗口的。</p>
+<p>总结下：</p>
+<p>1：offsetWidth包含边框为，clientWidth不包含边框</p>
+<p>2：offsetLeft为相对offsetParent的距离(第一个定位父集），clientLeft则为左边框宽度，如果有竖直滚动条则包含在内，这两个完全不是一个概念，不会搞混吧</p>
+<p>3.clentX相对浏览器，pageX相对文档，offsetX相对事件发生的元素</p>
+<p>4：jq封装的offset()方法是相对浏览器窗口的距离，position()方法是相对有定位的父级的距离，也就是说position().left相当于原生的offsetLeft()。<br>  <a href="https://developer.mozilla.org" target="_blank" rel="noopener">火狐开发者社区</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/08/10/js中的尺寸和位置/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-29T11:49:06.536Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2017/10/10/瀑布流/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          瀑布流
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/29/my-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">my-blog</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -249,8 +357,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -311,7 +419,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Help</a>
               </li>
             
             <div class="clearfix"></div>

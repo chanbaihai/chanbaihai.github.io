@@ -148,6 +148,156 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-瀑布流" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/10/10/瀑布流/">瀑布流</a>
+    </h1>
+  
+
+        
+        <a href="/2017/10/10/瀑布流/" class="archive-article-date">
+  	<time datetime="2017-10-10T14:14:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。"><a href="#很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。" class="headerlink" title="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。"></a>很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;简单说下瀑布流的实现思路。首先瀑布流的效果，大多高低参差不齐往下排列，瀑布流加上无限加载效果就更棒了。要想实现高底参差不齐并且按顺序排列肯定需要用到定位。首先第一排几张图正常排列，第二排开始每个图片都是接再第一排最矮的图片后面，如何保证每个图片都排列在最矮的图片后面就是瀑布流的难点了。<br>&nbsp;&nbsp;&nbsp;&nbsp;首先将瀑布流第一排图片循环遍历将他们的高度存进一个数组，通过Math.min(…heightArray)利用es6的扩展运算符来获取最小的那个数字也就是最矮的高度，再findindex()找index，最后根据index和最小高度给图片定位。然后再更新高度数组。一直循环生成的图片。记录下自己做的时候的思路，省的以后忘了。<a href="https://chanbaihai.github.io/weixin/" target="_blank" rel="noopener">Github瀑布流地址</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/10/10/瀑布流/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js中的尺寸和位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/08/10/js中的尺寸和位置/">js中的尺寸和位置</a>
+    </h1>
+  
+
+        
+        <a href="/2017/08/10/js中的尺寸和位置/" class="archive-article-date">
+  	<time datetime="2017-08-10T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"><a href="#js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用" class="headerlink" title="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"></a>js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释是怎么介绍clientWidth的：<br>The Element.clientWidth property is zero for elements with no CSS or inline layout boxes, otherwise it’s the inner width of an element in pixels. It includes padding but not the vertical scrollbar (if present, if rendered), border or margin.<br>如果元素没有css或者是行内元素那么cientwidth就是0，包含边框but not the vertical scrollbar，不包含竖直的滚动条和margin，这样专业装逼的解释还没明白？<br>
+        
+          <a class="article-more-a" href="/2017/08/10/js中的尺寸和位置/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/08/10/js中的尺寸和位置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-my-blog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -155,13 +305,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/my-blog/">my-blog</a>
+      <a class="article-title" href="/2017/07/29/my-blog/">my-blog</a>
     </h1>
   
 
         
-        <a href="/2018/07/29/my-blog/" class="archive-article-date">
-  	<time datetime="2018-07-29T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2017/07/29/my-blog/" class="archive-article-date">
+  	<time datetime="2017-07-29T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
 </a>
         
       </header>
@@ -170,7 +320,7 @@
       
         <h1 id="我的博客开通了😄"><a href="#我的博客开通了😄" class="headerlink" title="我的博客开通了😄"></a>我的博客开通了😄</h1><p> &nbsp;&nbsp;&nbsp;&nbsp;很久就想写个自己的博客了😸，一点一滴记录自己的学习过程或者是自己的随笔。<br>
         
-          <a class="article-more-a" href="/2018/07/29/my-blog/#more">more >></a>
+          <a class="article-more-a" href="/2017/07/29/my-blog/#more">more >></a>
         
       
 
@@ -194,7 +344,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/29/my-blog/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/29/my-blog/">展开全文 >></a>
         </p>
       
 
@@ -231,13 +381,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/07/28/hello-world/">Hello World</a>
     </h1>
   
 
         
-        <a href="/2018/07/29/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-29T11:49:06.536Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2017/07/28/hello-world/" class="archive-article-date">
+  	<time datetime="2017-07-28T15:45:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-28</time>
 </a>
         
       </header>
@@ -245,15 +395,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        
+          <a class="article-more-a" href="/2017/07/28/hello-world/#more">more >></a>
+        
       
 
       
@@ -261,11 +405,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Help</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/29/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2017/07/28/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -380,7 +535,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Help</a>
               </li>
             
             <div class="clearfix"></div>

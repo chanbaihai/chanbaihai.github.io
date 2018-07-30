@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>my-blog | 产百海的博客</title>
+  <title>瀑布流 | 产百海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="产百海的博客，javascript，前端，webpack，nodeejs，html，css，vue，吉他">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单说下瀑布流的实现思路。首先瀑布流的效果，大多高低参差不齐往下排列，瀑布流加上无限加载效果就更棒了。要想实现高底参差不齐并且按顺序排列肯定需要用到定位。首先第一排几张图正常排列，第二排开始每个图片都是接再第一排最矮的图片后面，如何保证每个图片都排列在最矮的">
+<meta name="keywords" content="js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="my-blog">
-<meta property="og:url" content="http://yoursite.com/2018/07/29/my-blog/index.html">
+<meta property="og:title" content="瀑布流">
+<meta property="og:url" content="http://yoursite.com/2017/10/10/瀑布流/index.html">
 <meta property="og:site_name" content="产百海的博客">
-<meta property="og:description" content="产百海的博客，javascript，前端，webpack，nodeejs，html，css，vue，吉他">
+<meta property="og:description" content="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单说下瀑布流的实现思路。首先瀑布流的效果，大多高低参差不齐往下排列，瀑布流加上无限加载效果就更棒了。要想实现高底参差不齐并且按顺序排列肯定需要用到定位。首先第一排几张图正常排列，第二排开始每个图片都是接再第一排最矮的图片后面，如何保证每个图片都排列在最矮的">
 <meta property="og:locale" content="CN">
-<meta property="og:updated_time" content="2018-07-29T14:53:17.033Z">
+<meta property="og:updated_time" content="2018-07-30T01:36:11.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="my-blog">
-<meta name="twitter:description" content="产百海的博客，javascript，前端，webpack，nodeejs，html，css，vue，吉他">
+<meta name="twitter:title" content="瀑布流">
+<meta name="twitter:description" content="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;简单说下瀑布流的实现思路。首先瀑布流的效果，大多高低参差不齐往下排列，瀑布流加上无限加载效果就更棒了。要想实现高底参差不齐并且按顺序排列肯定需要用到定位。首先第一排几张图正常排列，第二排开始每个图片都是接再第一排最矮的图片后面，如何保证每个图片都排列在最矮的">
   
     <link rel="alternative" href="/atom.xml" title="产百海的博客" type="application/atom+xml">
   
@@ -151,28 +151,27 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-my-blog" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-瀑布流" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      my-blog
+      瀑布流
     </h1>
   
 
         
-        <a href="/2018/07/29/my-blog/" class="archive-article-date">
-  	<time datetime="2018-07-29T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
+        <a href="/2017/10/10/瀑布流/" class="archive-article-date">
+  	<time datetime="2017-10-10T14:14:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="我的博客开通了😄"><a href="#我的博客开通了😄" class="headerlink" title="我的博客开通了😄"></a>我的博客开通了😄</h1><p> &nbsp;&nbsp;&nbsp;&nbsp;很久就想写个自己的博客了😸，一点一滴记录自己的学习过程或者是自己的随笔。<br> <a id="more"></a><br> &nbsp;&nbsp;&nbsp;&nbsp;因为在不断学习前端知识的时候踩了很多的坑，找了很多的资料，很多大神的博客都给出了帮助，站在巨人的肩膀上才能让我们走的更远。所以我想，我能不能也给别人一点帮助呢？自知个人能力不足，不足以高谈阔论，但有些很简单的问题对于新人来说确是很迷茫的，so，一边记录自己，一边写点简单的东西给有需要的人。分享自己的感悟💪。   </p>
-<p> &nbsp;&nbsp;&nbsp;&nbsp;我的博客模板是在github上fork的开源项目<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">hexo-theme-yilia</a>，👏🏼感谢作者的模板，博客搭建在githubpages上面，👏🏼感谢github给了我们这么好的平台。由于前阵子学习写readme.md的时候学习了markdown语法，看起来很简单但挺实用的，特别是对代码，省去了截图的烦恼。后来加上emotion还挺不错的感觉就搜了下发现github+hexo就能使用md搭建个人的静态博客，又找了下教程发现了这个模板电脑移动端都支持，很听美观的，就用了这个模板，作者好吊！以后有时间就在这里写自己的博客了。省去了其他平台的诸多限制。想搭建自己的博客的同学可以看这个👉<a href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html" target="_blank" rel="noopener">教程</a>。</p>
+        <h1 id="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。"><a href="#很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。" class="headerlink" title="很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。"></a>很多网站有很炫的特效，贴别是展示页面，比如图片，展示的效果很多，其中瀑布流应该算是最经典的了。</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;简单说下瀑布流的实现思路。首先瀑布流的效果，大多高低参差不齐往下排列，瀑布流加上无限加载效果就更棒了。要想实现高底参差不齐并且按顺序排列肯定需要用到定位。首先第一排几张图正常排列，第二排开始每个图片都是接再第一排最矮的图片后面，如何保证每个图片都排列在最矮的图片后面就是瀑布流的难点了。<br>&nbsp;&nbsp;&nbsp;&nbsp;首先将瀑布流第一排图片循环遍历将他们的高度存进一个数组，通过Math.min(…heightArray)利用es6的扩展运算符来获取最小的那个数字也就是最矮的高度，再findindex()找index，最后根据index和最小高度给图片定位。然后再更新高度数组。一直循环生成的图片。记录下自己做的时候的思路，省的以后忘了。<a href="https://chanbaihai.github.io/weixin/" target="_blank" rel="noopener">Github瀑布流地址</a></p>
 
       
 
@@ -207,7 +206,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
@@ -263,7 +262,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/29/my-blog/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/10/10/瀑布流/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,8 +277,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2018/07/29/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2017/08/10/js中的尺寸和位置/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">js中的尺寸和位置</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -397,7 +396,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Help</a>
               </li>
             
             <div class="clearfix"></div>
