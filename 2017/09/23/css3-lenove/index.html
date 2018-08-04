@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2017/7 | 产百海的博客</title>
+  <title>JavaScript实现联想校招员工信息展示 | 产百海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="产百海的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2017/07/index.html">
+  <meta name="description" content="使用简单模板+css3+javascript实现CSS3弹窗及切换">
+<meta name="keywords" content="JavaScript,小练习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript实现联想校招员工信息展示">
+<meta property="og:url" content="http://yoursite.com/2017/09/23/css3-lenove/index.html">
 <meta property="og:site_name" content="产百海的博客">
+<meta property="og:description" content="使用简单模板+css3+javascript实现CSS3弹窗及切换">
 <meta property="og:locale" content="CN">
+<meta property="og:image" content="http://yoursite.com/images/article/4.jpg">
+<meta property="og:image" content="http://yoursite.com/images/article/3.jpg">
+<meta property="og:updated_time" content="2018-08-04T13:16:56.650Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="产百海的博客">
+<meta name="twitter:title" content="JavaScript实现联想校招员工信息展示">
+<meta name="twitter:description" content="使用简单模板+css3+javascript实现CSS3弹窗及切换">
+<meta name="twitter:image" content="http://yoursite.com/images/article/4.jpg">
   
     <link rel="alternative" href="/atom.xml" title="产百海的博客" type="application/atom+xml">
   
@@ -142,60 +150,204 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-css3-lenove" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/29/my-blog/" class="archive-article-date">
-  	<time datetime="2017-07-29T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/29/my-blog/">my-blog</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript实现联想校招员工信息展示
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/09/23/css3-lenove/" class="archive-article-date">
+  	<time datetime="2017-09-23T14:22:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>今天和豪哥聊天，才知道他是我老乡，而且特别近。。真的感觉他是我的贵人，这是他从<br>联想校招扣出来的，我们就用JavaScript来实现吧</p>
+<figure><br>    <a href="/images/article/4.jpg"><br>        <img src="/images/article/4.jpg" alt="home"><br>    </a><br>    <figcaption>联想校招员工信息展示</figcaption><br></figure>
+
+<figure><br>    <a href="/images/article/3.jpg"><br>        <img src="/images/article/3.jpg" alt="home"><br>    </a><br>    <figcaption>点击弹出详细信息</figcaption><br></figure>
+
+<a id="more"></a>
+<h1 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h1><p>给的有HTML还有CSS3，我打算先用前端模板技术讲信息都出来，之前数据是写死在HTML</p>
+<p>数据封装在data.js里</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> data = [];</span><br><span class="line"></span><br><span class="line">data.push(&#123;</span><br><span class="line">	<span class="string">'name'</span> : <span class="string">'Dillon'</span>,</span><br><span class="line">	<span class="string">'enname'</span> : <span class="string">'Dillon'</span>,</span><br><span class="line">	<span class="string">'desc'</span> : <span class="string">'来自哈佛的战略伙伴经理'</span>,</span><br><span class="line">	<span class="string">'pic'</span> : <span class="string">'images/n8_10.png'</span>,</span><br><span class="line">	<span class="string">'bigpic'</span> : <span class="string">'images/j2.jpg'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">data.push(&#123;</span><br><span class="line">	<span class="string">'name'</span> : <span class="string">'成俞晟'</span>,</span><br><span class="line">	<span class="string">'enname'</span> : <span class="string">'cheng'</span>,</span><br><span class="line">	<span class="string">'desc'</span> : <span class="string">'技术宅服务器工程师'</span>,</span><br><span class="line">	<span class="string">'pic'</span> : <span class="string">'images/n8_07.png'</span>,</span><br><span class="line">	<span class="string">'bigpic'</span> : <span class="string">'images/j3.jpg'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">data.push(&#123;</span><br><span class="line">	<span class="string">'name'</span> : <span class="string">'Said'</span>,</span><br><span class="line">	<span class="string">'enname'</span> : <span class="string">'Said'</span>,</span><br><span class="line">	<span class="string">'desc'</span> : <span class="string">'开朗健谈的中国通'</span>,</span><br><span class="line">	<span class="string">'pic'</span> : <span class="string">'images/n8_18.png'</span>,</span><br><span class="line">	<span class="string">'bigpic'</span> : <span class="string">'images/j5.jpg'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//...</span></span><br></pre></td></tr></table></figure>
+<p>我们讲以前的HTML写成一个模板</p>
+<p>展示区模板</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"temp_li"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">li</span> <span class="attr">data-id</span>=<span class="string">"&#123;i&#125;"</span> <span class="attr">class</span>=<span class="string">"transform"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">span</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;desc&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;pic&#125;"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>弹出层模板</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"dialog"</span>  <span class="attr">class</span>=<span class="string">"box_ovo "</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"close"</span> <span class="attr">class</span>=<span class="string">"close"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"prev"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"next"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"div_temp1"</span> <span class="attr">data-id</span>=<span class="string">"&#123;i&#125;"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"oimg1"</span> <span class="attr">src</span>=<span class="string">"&#123;bigpic&#125;"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ovotxt"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"ovohead"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;name&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">i</span>&gt;</span>&#123;enname&#125;<span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">em</span>&gt;</span>&#123;desc&#125;<span class="tag">&lt;/<span class="name">em</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">span</span>&gt;</span>ECS<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>2013年加入联想，联想游戏中心最霸气的女商务，性格大大咧咧，柔弱的外表下有一颗强大的心。自诩内可安邦定天下，外可御敌千里外。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">p</span>&gt;</span>联想游戏中心作为北研最靓丽的风景线，不仅有着最潮、最流行的游戏可以玩，有各种精美的游戏周边随便拿，最关键的是有这样娇(ba)媚(qi)可(shi)人(zu)的女汉子陪聊，陪工作，陪吃饭。总之一句话，联想游戏中心，你值得拥有。<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>然后用一下代码弄到HTML里面</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取LI模板HTML</span></span><br><span class="line"><span class="keyword">var</span> tempLi = <span class="built_in">document</span>.getElementById(<span class="string">'temp_li'</span>).innerHTML;</span><br><span class="line"><span class="comment">//HTML + 数据最后放到这个数组里</span></span><br><span class="line"><span class="keyword">var</span> liArr = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">	<span class="comment">//替换模板里&#123;&#125;表达式</span></span><br><span class="line">	<span class="keyword">var</span> itemLi = tempLi.replace(<span class="regexp">/\&#123;i\&#125;/</span>, i)</span><br><span class="line">					.replace(<span class="regexp">/\&#123;name\&#125;/</span>,data[i].name)</span><br><span class="line">					.replace(<span class="regexp">/\&#123;desc\&#125;/</span>,data[i].desc)</span><br><span class="line">					.replace(<span class="regexp">/\&#123;pic\&#125;/</span>,data[i].pic);</span><br><span class="line">	liArr.push(itemLi);</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">//加入到ul里</span></span><br><span class="line">ul.innerHTML = liArr.join(<span class="string">''</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取详细信息模板</span></span><br><span class="line"><span class="keyword">var</span> tempDialog = dialog.innerHTML;</span><br><span class="line"></span><br><span class="line"><span class="comment">//打开弹出层</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openDialog</span>(<span class="params">dataIndex</span>) </span>&#123;</span><br><span class="line">	dialog.innerHTML = tempDialog.replace(<span class="regexp">/\&#123;i\&#125;/</span>,dataIndex)</span><br><span class="line">						.replace(<span class="regexp">/\&#123;name\&#125;/</span>,data[dataIndex].name)</span><br><span class="line">						.replace(<span class="regexp">/\&#123;enname\&#125;/</span>,data[dataIndex].enname)</span><br><span class="line">						.replace(<span class="regexp">/\&#123;desc\&#125;/</span>,data[dataIndex].desc)</span><br><span class="line">						.replace(<span class="regexp">/\&#123;bigpic\&#125;/</span>,data[dataIndex].bigpic);</span><br><span class="line">	bg.className += <span class="string">' current'</span>;</span><br><span class="line">    dialog.className += <span class="string">' current'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>因为HTML是动态生成的，直接不能加绑定事件，所以使用事件委托</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给每一个li加事件</span></span><br><span class="line">ul.onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> e = event || <span class="built_in">window</span>.event;</span><br><span class="line">	<span class="keyword">var</span> target = e.target || e.srcElement;</span><br><span class="line">	target = getLiByChild(target);</span><br><span class="line">	<span class="keyword">if</span>(target) &#123;</span><br><span class="line">		<span class="keyword">var</span> curIndex = target.getAttribute(<span class="string">'data-id'</span>);</span><br><span class="line">    	openDialog(curIndex);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;	</span><br><span class="line"></span><br><span class="line"><span class="comment">//给弹出层加事件</span></span><br><span class="line">dialog.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> e = event || <span class="built_in">window</span>.event;</span><br><span class="line">	<span class="keyword">var</span> target = e.target || e.srcElement;</span><br><span class="line">	<span class="keyword">var</span> curIndex = +dialog.lastElementChild.getAttribute(<span class="string">'data-id'</span>); </span><br><span class="line">	<span class="comment">//点击关闭</span></span><br><span class="line">	<span class="keyword">if</span>(target.nodeName == <span class="string">'I'</span> &amp;&amp; target.parentNode.className == <span class="string">'close'</span>) &#123;</span><br><span class="line">		closeDialog();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//点击上一个</span></span><br><span class="line">	<span class="keyword">if</span>(target.nodeName == <span class="string">'I'</span> &amp;&amp; target.parentNode.className == <span class="string">'prev'</span>) &#123;</span><br><span class="line">		<span class="keyword">var</span> preIndex= curIndex<span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">if</span>(preIndex &gt; <span class="number">-1</span>) &#123;</span><br><span class="line">			closeDialog(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				openDialog(preIndex);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;<span class="comment">//否则循环到最后一个</span></span><br><span class="line">			closeDialog(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				openDialog(data.length<span class="number">-1</span>);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//点击下一个</span></span><br><span class="line">	<span class="keyword">if</span>(target.nodeName == <span class="string">'I'</span> &amp;&amp; target.parentNode.className == <span class="string">'next'</span>) &#123;</span><br><span class="line">		<span class="keyword">var</span> nextIndex= curIndex+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span>(nextIndex &lt; data.length) &#123;</span><br><span class="line">			closeDialog(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				openDialog(nextIndex);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;<span class="comment">//否则循环到最后一个</span></span><br><span class="line">			closeDialog(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">				openDialog(<span class="number">0</span>);</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，弹出层里有三个动作；</p>
+<p>1.关闭弹窗<br>2.前一个<br>2.后一个</p>
+<p>我们在里面做处理，如果是前一个为第一个则跳到最后一个，如果为最后一个则跳到前一个</p>
+<p>因为我们点击的时候有可能点到SPAN，有可能点到DIV(原因看展示区模板)，所以要有个函数来<br>找到顶层的LI,因为关闭有一个动画效果，我看了CSS是0.3s，所以我们加一个定时器做一个回调</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//找到最顶层LI</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getLiByChild</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> li = element;</span><br><span class="line">	<span class="keyword">while</span>(li.nodeName != <span class="string">'LI'</span>) &#123;</span><br><span class="line">		li = li.parentNode;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> li;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭Dialog</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">closeDialog</span>(<span class="params">func</span>) </span>&#123;</span><br><span class="line">	bg.className = <span class="string">'box_bg1'</span>;</span><br><span class="line">    dialog.className = <span class="string">'box_ovo'</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(dialog.className == <span class="string">'box_ovo'</span>) &#123;</span><br><span class="line">    		func &amp;&amp; func();</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;,<span class="number">300</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="获取代码"><a href="#获取代码" class="headerlink" title="获取代码"></a><a target="_blank" href="https://github.com/hacke2/">获取代码</a><br></h1><p>代码就不贴在博客上了，很简单，没什么可看的，大家可以去我的github上检出</p>
+<h2 id="查看完整DEMO"><a href="#查看完整DEMO" class="headerlink" title="查看完整DEMO"></a><a target="_blank" style="color:red" href="/works/demo/04">查看完整DEMO</a></h2><p><strong>end from</strong></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小练习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2017/09/23/css3-lenove/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/09/26/css-multi-row-overflow/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          小tip:CSS3控制多行溢出
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/08/10/hink-in-seo/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">了解SEO</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -218,8 +370,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
