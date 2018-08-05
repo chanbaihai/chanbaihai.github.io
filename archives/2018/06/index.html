@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>从输入 URL 到页面加载完成的过程中都发生了什么事情？ | 产百海的博客</title>
+  <title>Archives: 2018/6 | 产百海的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="what happens when you type in a url in browser，对stackoverflow回答的扩展">
-<meta name="keywords" content="浏览器,计算机网络">
-<meta property="og:type" content="article">
-<meta property="og:title" content="从输入 URL 到页面加载完成的过程中都发生了什么事情？">
-<meta property="og:url" content="http://yoursite.com/2018/02/18/what-happens-when-you-type-in-a-url-in-browser/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="产百海的博客">
+<meta property="og:url" content="http://yoursite.com/archives/2018/06/index.html">
 <meta property="og:site_name" content="产百海的博客">
-<meta property="og:description" content="what happens when you type in a url in browser，对stackoverflow回答的扩展">
 <meta property="og:locale" content="CN">
-<meta property="og:updated_time" content="2018-08-04T13:37:03.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从输入 URL 到页面加载完成的过程中都发生了什么事情？">
-<meta name="twitter:description" content="what happens when you type in a url in browser，对stackoverflow回答的扩展">
+<meta name="twitter:title" content="产百海的博客">
   
     <link rel="alternative" href="/atom.xml" title="产百海的博客" type="application/atom+xml">
   
@@ -147,212 +142,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-what-happens-when-you-type-in-a-url-in-browser" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      从输入 URL 到页面加载完成的过程中都发生了什么事情？
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/06/03/findIndex/" class="archive-article-date">
+  	<time datetime="2018-06-03T14:43:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/06/03/findIndex/">从小坑理解js的数据类型</a>
     </h1>
   
 
-        
-        <a href="/2018/02/18/what-happens-when-you-type-in-a-url-in-browser/" class="archive-article-date">
-  	<time datetime="2018-02-18T13:56:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>收藏<br>在在浏览器输入url发生了什么事请，看到<a href="http://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser" target="_blank" rel="noopener">Stack Overflow</a>有一个很好的资料,<br>记录了一下，以后做个参考.</p>
-<pre><code>1.browser checks cache; if requested object is in cache and is fresh, skip to #9
-2.browser asks OS for server&apos;s IP address
-3.OS makes a DNS lookup and replies the IP address to the browser
-4.browser opens a TCP connection to server (this step is much more complex with HTTPS)
-5.browser sends the HTTP request through TCP connection
-6.browser receives HTTP response and may close the TCP connection, or reuse it for another request
-7.browser checks if the response is a redirect (3xx result status codes), authorization request (401),
-    error (4xx and 5xx), etc.; these are handled differently from normal responses (2xx)
-8.if cacheable, response is stored in cache
-9.browser decodes response (e.g. if it&apos;s gzipped)
-10.browser determines what to do with response 
-    (e.g. is it a HTML page, is it an image, is it a sound clip?)
-11.browser renders response, or offers a download dialog for unrecognized types
-</code></pre><a id="more"></a>
-<pre><code>1.检查浏览器缓存，如果你请求的对象依据缓存下来了，则跳到第9步
-2.浏览器会询问操作系统你请求的服务器的IP
-3.操作系统先查询本地Host文件；如果hosts里没有这个域名的映射，则查找本地DNS解析器缓存；
-    如果还是没有，会找TCP/ip参数中设置的首选DNS服务器，查询本地区域文件与缓存；
-    如果本地DNS服务器本地区域文件与缓存解析都失效，则根据本地DNS服务器的设置进行查询，
-    如果未用转发模式，本地DNS就把请求发至13台根DNS，
-    如果开启转发模式，此DNS服务器就会把请求转发至上一级DNS服务器，由上一级服务器进行解析，
-    上一级服务器如果不能解析，或找根DNS或把转请求转至上上级，以此循环。最后返回IP给浏览器
-4.浏览器拿到IP后，想会向服务器建立一个socket连接(不考虑https)
-5.浏览器通过TCP向服务器发送HTTP请求的
-6.浏览器接收到服务器响应就会断开TCP连接，或者为了其他请求重用它
-7.浏览器检查响应的状态是重定向(3xx)、要求授权(401)、服务器错误(4xx 和 5xx)，如果是正常则会返回2xx(200)，
-8.如果是可缓存的，响应则缓存在内存里
-9.浏览器将解码响应(不考虑gzip压缩)
-10.浏览器决定如何响应,例如图片、HTML、媒体文件
-11.浏览器将渲染请求，或者弹出一个下载对话框
-</code></pre><p>大家也可以参考下面补充文章:<br><br><a href="http://ued.ctrip.com/blog/?p=3287" target="_blank" rel="noopener">浏览器是怎样工作的（一）：基础知识</a><br><br><a href="http://ued.ctrip.com/blog/?p=3295" target="_blank" rel="noopener">浏览器是怎样工作的：渲染引擎，HTML解析（连载二）</a><br><br><a href="http://tool.oschina.net/commons?type=5" target="_blank" rel="noopener">开源中国HTTP状态码常用对照表</a></p>
-<p><strong>end</strong></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">浏览器</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/18/what-happens-when-you-type-in-a-url-in-browser/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/04/20/this/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          箭头函数this
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/01/10/div-center/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">CSS居中完全解决方案</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -375,8 +218,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

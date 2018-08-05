@@ -144,6 +144,83 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-findIndex" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/06/03/findIndex/">从小坑理解js的数据类型</a>
+    </h1>
+  
+
+        
+        <a href="/2018/06/03/findIndex/" class="archive-article-date">
+  	<time datetime="2018-06-03T14:43:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="今天用React做个删除功能竟然怎么也删不掉？"><a href="#今天用React做个删除功能竟然怎么也删不掉？" class="headerlink" title="今天用React做个删除功能竟然怎么也删不掉？"></a>今天用React做个删除功能竟然怎么也删不掉？</h1><blockquote>
+<p>我用了数组的findIndex方法，点击每条数据会让数据库删除，然后返回给父级一个当前删除对象，然后父级去state里找，删除掉这一条，很简单的功能，但是后来我发现数据库删掉了，怎么DOM没变化，还是需要刷新，以下是setState大概过程<br>
+        
+          <a class="article-more-a" href="/2018/06/03/findIndex/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">JS</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/06/03/findIndex/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-this" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -164,10 +241,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h2><blockquote>
-<p><a href="https://www.jianshu.com/p/eca50cc933b7" target="_blank" rel="noopener">简书</a></p>
-</blockquote>
-<h3 id="不绑定this"><a href="#不绑定this" class="headerlink" title="不绑定this"></a>不绑定this</h3><ul>
+        <h2 id="箭头函数和普通函数的区别"><a href="#箭头函数和普通函数的区别" class="headerlink" title="箭头函数和普通函数的区别"></a>箭头函数和普通函数的区别</h2><h3 id="不绑定this"><a href="#不绑定this" class="headerlink" title="不绑定this"></a>不绑定this</h3><ul>
 <li>在箭头函数出现之前，每个新定义的函数都有其自己的 this 值</li>
 </ul>
         
@@ -886,82 +960,6 @@
 
 
   
-    <article id="post-js中的尺寸和位置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/10/js中的尺寸和位置/">js中的尺寸和位置</a>
-    </h1>
-  
-
-        
-        <a href="/2017/08/10/js中的尺寸和位置/" class="archive-article-date">
-  	<time datetime="2017-08-10T12:04:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"><a href="#js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用" class="headerlink" title="js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用"></a>js中获取元素的尺寸和位置的方法太多太烦，很容易就搞混掉，所以查询下资料记录下各方法的使用</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;首先就是获取Dom元素尺寸的offsetWidth，offsetHeight和clientWidth，clientHeight。offsetWidth包含元素的边框，但不包括margin而client只是innerWidth，也就是不包括边框。看下专业的装逼解释是怎么介绍clientWidth的：<br>The Element.clientWidth property is zero for elements with no CSS or inline layout boxes, otherwise it’s the inner width of an element in pixels. It includes padding but not the vertical scrollbar (if present, if rendered), border or margin.<br>如果元素没有css或者是行内元素那么cientwidth就是0，包含边框but not the vertical scrollbar，不包含竖直的滚动条和margin，这样专业装逼的解释还没明白？<br>
-        
-          <a class="article-more-a" href="/2017/08/10/js中的尺寸和位置/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/08/10/js中的尺寸和位置/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1059,15 +1057,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">CSS3</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">js</a>
+                <a href="javascript:void(0)" class="js-tag color3">JS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1075,7 +1069,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
+                <a href="javascript:void(0)" class="js-tag color3">js</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1084,6 +1082,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
              
               <li class="article-tag-list-item">
